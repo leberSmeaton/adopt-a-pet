@@ -9,17 +9,17 @@ import { useLocation } from 'react-router';
 const SearchPage = () => {
 
   // Get the search value from useLocation() here
-  const search = useLocation();
+  const { search } = useLocation();
 
   const queryParams = useMemo(() => { 
-    return new URLSearchParams('REPLACE ME');
+    return new URLSearchParams(search);
   }, [search]);
 
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
     async function getPetsData() {
-      const petNameToFind = 'REPLACE ME';
+      const petNameToFind = queryParams.get('name');
       const petsData = await getPets('', petNameToFind);
 
       setPets(petsData);

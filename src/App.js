@@ -2,7 +2,7 @@ import React from 'react';
 import HomePage from './pages/home';
 import SearchPage from './pages/search';
 import PetDetailsPage from './pages/detail';
-// import PetDetailsNotFound from './pages/petDetailsNotFound';
+import PetDetailsNotFound from './pages/petDetailsNotFound';
 import Navigation from './components/navigation';
 import { 
   BrowserRouter, 
@@ -18,10 +18,11 @@ function App() {
         {/* <HomePage />   */}
 
         <Routes>
-          <Route path="/">
+          <Route path="/" >
             <Route path="search" element={<SearchPage />} />
             <Route path=":type" element={<HomePage />} />
             <Route path=":type/:id" element={<PetDetailsPage />} />
+            <Route path="petDetailsNotFound" element={<PetDetailsNotFound /> } />
           </Route>
         </Routes>
       </BrowserRouter>  
